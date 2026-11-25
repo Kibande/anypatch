@@ -1,0 +1,83 @@
+{
+  "name": "anypatch",
+  "version": "0.1.0",
+  "description": "Apply any LLM-generated code edit: unified diffs, OpenAI apply_patch (V4A), SEARCH/REPLACE blocks and str_replace edits, with fuzzy matching and error messages written for the model to fix its own patch.",
+  "keywords": [
+    "patch",
+    "diff",
+    "unified-diff",
+    "apply-patch",
+    "apply_patch",
+    "v4a",
+    "search-replace",
+    "str_replace",
+    "llm",
+    "ai",
+    "agent",
+    "coding-agent",
+    "ai-agent",
+    "code-edit",
+    "fuzzy",
+    "aider",
+    "codex",
+    "claude",
+    "mcp"
+  ],
+  "license": "MIT",
+  "author": "Steven Kibande",
+"repository": { "type": "git", "url": "git+https://github.com/Kibande/anypatch.git" },
+"homepage": "https://github.com/Kibande/anypatch#readme",
+"bugs": "https://github.com/Kibande/anypatch/issues",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./node": {
+      "import": {
+        "types": "./dist/node.d.ts",
+        "default": "./dist/node.js"
+      },
+      "require": {
+        "types": "./dist/node.d.cts",
+        "default": "./dist/node.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "anypatch": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  }
+}
